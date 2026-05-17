@@ -91,12 +91,12 @@ header h1 {
 section { margin-bottom: 40px; }
 
 h2 {
-  font-size: 12px;
-  font-weight: 500;
+  font-size: 14px;
+  font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: 0.08em;
-  color: var(--muted);
-  margin: 0 0 14px;
+  letter-spacing: 0.10em;
+  color: var(--fg);
+  margin: 0 0 16px;
 }
 
 ul {
