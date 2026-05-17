@@ -105,10 +105,86 @@ ul {
   margin: 0;
 }
 
-/* Projects — full-row clickable cards */
+/* Projects — full-row clickable cards with hover dep-graph */
+.projects-wrap {
+  position: relative;
+  /* room on the left for the dep-graph "branch lane" */
+  padding-left: 26px;
+}
+
+.deps-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  overflow: visible;
+}
+
+.deps-overlay .dep-edge {
+  fill: none;
+  stroke: var(--accent);
+  stroke-width: 1.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  opacity: 0;
+  stroke-dasharray: 4 4;
+  transition: opacity 180ms ease;
+}
+
+.deps-overlay .dep-edge.active {
+  opacity: 0.85;
+  animation: dep-flow 1.6s linear infinite;
+}
+
+@keyframes dep-flow {
+  to { stroke-dashoffset: -16; }
+}
+
 .projects { display: flex; flex-direction: column; gap: 8px; }
 
-.projects li { padding: 0; border: 0; }
+.projects li {
+  padding: 0;
+  border: 0;
+  position: relative;
+  transition: opacity 180ms ease, transform 180ms ease;
+}
+
+/* Node dot (git-graph style) — sits in the branch lane left of each card */
+.proj-node {
+  position: absolute;
+  left: -18px;
+  top: 22px;
+  width: 10px;
+  height: 10px;
+  border-radius: 999px;
+  background: var(--bg);
+  border: 1.5px solid var(--muted);
+  z-index: 2;
+  transition: background 180ms ease, border-color 180ms ease, transform 180ms ease, box-shadow 180ms ease;
+}
+
+/* Dim non-related cards while a graph is active */
+.projects.graph-active li {
+  opacity: 0.35;
+}
+.projects.graph-active li.is-active,
+.projects.graph-active li.is-related {
+  opacity: 1;
+}
+
+/* Highlight the hovered + related nodes */
+.projects.graph-active li.is-active .proj-node,
+.projects.graph-active li.is-related .proj-node {
+  background: var(--accent);
+  border-color: var(--accent);
+  box-shadow: 0 0 0 4px color-mix(in srgb, var(--accent) 20%, transparent);
+}
+
+.projects.graph-active li.is-active {
+  transform: translateX(2px);
+}
 
 .projects li a {
   display: grid;
