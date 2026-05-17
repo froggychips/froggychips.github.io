@@ -1,12 +1,12 @@
-/* froggychips.xyz — minimal modern, light, with dark-mode follow-up.
-   No build step, no JS, no analytics, no third-party scripts beyond
-   the Inter webfont (rsms.me). */
+/* froggychips.xyz — minimal modern, light, with dark-mode follow-up. */
 
 :root {
   --bg: #ffffff;
   --fg: #1a1a1a;
   --muted: #6b6b6b;
   --rule: #e8e8e8;
+  --card: #f6f7f8;
+  --card-hover: #eef3ef;
   --accent: #2d8a3e;
   --max-w: 640px;
 }
@@ -17,6 +17,8 @@
     --fg: #e8e8e8;
     --muted: #8a8a8a;
     --rule: #232427;
+    --card: #16181a;
+    --card-hover: #1b2320;
     --accent: #5fbf6e;
   }
 }
@@ -51,14 +53,34 @@ header h1 {
   font-size: 28px;
   font-weight: 500;
   letter-spacing: -0.01em;
-  margin: 0 0 6px;
+  margin: 0 0 12px;
 }
 
 .tagline {
   color: var(--muted);
   margin: 0 0 36px;
   font-size: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
 }
+
+.locs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 18px;
+  align-items: center;
+}
+
+.loc { display: inline-flex; align-items: center; gap: 6px; }
+
+.flag {
+  font-family: 'Apple Color Emoji', 'Segoe UI Emoji', 'Noto Color Emoji', sans-serif;
+  font-size: 15px;
+  line-height: 1;
+}
+
+.stack { color: var(--fg); }
 
 .bio p {
   margin: 0 0 48px;
@@ -83,47 +105,125 @@ ul {
   margin: 0;
 }
 
-.projects li {
-  display: grid;
-  grid-template-columns: 160px 1fr;
-  column-gap: 20px;
-  padding: 10px 0;
-  border-top: 1px solid var(--rule);
-}
+/* Projects — full-row clickable cards */
+.projects { display: flex; flex-direction: column; gap: 8px; }
 
-.projects li:last-child { border-bottom: 1px solid var(--rule); }
+.projects li { padding: 0; border: 0; }
 
 .projects li a {
-  font-weight: 500;
+  display: grid;
+  grid-template-columns: 160px 1fr auto;
+  column-gap: 20px;
+  align-items: baseline;
+  padding: 14px 16px;
+  background: var(--card);
+  border: 1px solid var(--rule);
+  border-radius: 10px;
+  color: var(--fg);
+  text-decoration: none;
+  transition: background 140ms ease, border-color 140ms ease, transform 140ms ease;
 }
 
-.projects li span {
+.projects li a:hover,
+.projects li a:focus-visible {
+  background: var(--card-hover);
+  border-color: var(--accent);
+}
+
+.projects li a:hover .proj-arrow,
+.projects li a:focus-visible .proj-arrow {
+  color: var(--accent);
+  transform: translateX(2px);
+}
+
+.proj-name {
+  font-weight: 600;
+  color: var(--fg);
+}
+
+.proj-desc {
   color: var(--muted);
   font-size: 14.5px;
 }
 
+.proj-desc em {
+  font-style: normal;
+  color: var(--accent);
+  font-weight: 500;
+}
+
+.proj-desc code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.92em;
+  background: var(--rule);
+  color: var(--fg);
+  padding: 0 4px;
+  border-radius: 3px;
+}
+
+.proj-arrow {
+  color: var(--muted);
+  font-size: 18px;
+  line-height: 1;
+  transition: color 140ms ease, transform 140ms ease;
+  align-self: center;
+}
+
 @media (max-width: 540px) {
-  .projects li {
-    grid-template-columns: 1fr;
-    row-gap: 2px;
-    padding: 12px 0;
+  .projects li a {
+    grid-template-columns: 1fr auto;
+    row-gap: 4px;
+    padding: 12px 14px;
   }
+  .proj-name { grid-column: 1 / 2; }
+  .proj-arrow { grid-row: 1 / 2; grid-column: 2 / 3; }
+  .proj-desc { grid-column: 1 / 3; }
 }
 
-.contact li {
-  padding: 4px 0;
+/* Contact */
+.contact { display: flex; flex-direction: column; gap: 2px; }
+
+.contact li { padding: 0; }
+
+.contact li a {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 6px 0;
+  color: var(--fg);
+  text-decoration: none;
+  border-bottom: 0;
 }
 
+.contact li a:hover .ct-label,
+.contact li a:focus-visible .ct-label { color: var(--accent); }
+
+.contact li a:hover .ico,
+.contact li a:focus-visible .ico { color: var(--accent); }
+
+.ico {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+  color: var(--muted);
+  transition: color 140ms ease;
+}
+
+.ct-label {
+  font-weight: 500;
+  transition: color 140ms ease;
+  min-width: 78px;
+}
+
+.ct-handle {
+  color: var(--muted);
+  font-size: 14.5px;
+}
+
+/* Generic links elsewhere (footer, future prose) */
 a {
   color: var(--fg);
   text-decoration: none;
-  border-bottom: 1px solid var(--rule);
-  transition: border-color 120ms ease, color 120ms ease;
-}
-
-a:hover {
-  color: var(--accent);
-  border-bottom-color: var(--accent);
 }
 
 footer {
