@@ -67,9 +67,9 @@ header h1 {
 
 .locs {
   display: flex;
-  flex-wrap: wrap;
-  gap: 6px 18px;
-  align-items: center;
+  flex-direction: column;
+  gap: 2px;
+  align-items: flex-start;
 }
 
 .loc { display: inline-flex; align-items: center; gap: 6px; }
