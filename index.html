@@ -43,74 +43,87 @@
 
     <section aria-label="bio" class="bio">
       <p>
-        Self-taught engineer. Day job: SRE on a live game backend. Side projects:
-        on-device LLMs for memory-constrained Macs, MCP tooling for Claude Code,
-        and the supply-chain plumbing under both.
+        Self-taught. Day job: SRE on a live game backend that fails loudly when
+        I'm wrong. Off-hours: getting 8 GB Macs to do more than they were sold
+        for, plumbing Claude Code into things it probably shouldn't touch yet,
+        and trying to make MCP boring.
       </p>
     </section>
 
     <section aria-label="projects" class="projects-section">
       <h2>Projects</h2>
-      <div class="projects-wrap">
-        <svg class="deps-overlay" aria-hidden="true"></svg>
-        <ul class="projects">
-          <li data-key="froggy" data-deps="">
-            <span class="proj-node" aria-hidden="true"></span>
-            <a href="https://github.com/froggychips/Froggy">
-              <span class="proj-name">Froggy</span>
-              <span class="proj-desc"><em>8 GB is enough.</em> Local LLM + screen-OCR daemon for memory-constrained Apple Silicon. Swift 6, MLX, ScreenCaptureKit. Runs on the Mac most tools say they need 16+ for.</span>
-              <span class="proj-arrow" aria-hidden="true">→</span>
-            </a>
-          </li>
-          <li data-key="froggykit" data-deps="froggy">
-            <span class="proj-node" aria-hidden="true"></span>
-            <a href="https://github.com/froggychips/FroggyKit">
-              <span class="proj-name">FroggyKit</span>
-              <span class="proj-desc"><em>Just the plumbing.</em> Shared Swift package with the FroggyClient IPC layer. Used by Froggy-MCP and Froggy-SRE so the wire format stays in one place.</span>
-              <span class="proj-arrow" aria-hidden="true">→</span>
-            </a>
-          </li>
-          <li data-key="froggy-mcp" data-deps="froggykit,froggy">
-            <span class="proj-node" aria-hidden="true"></span>
-            <a href="https://github.com/froggychips/froggy-mcp">
-              <span class="proj-name">Froggy-MCP</span>
-              <span class="proj-desc"><em>Cloud model, local eyes.</em> MCP bridge that lets Claude Code see your screen, OCR-pull text, and call the on-device Froggy daemon over a Unix socket. Nothing leaves the box unless you ask.</span>
-              <span class="proj-arrow" aria-hidden="true">→</span>
-            </a>
-          </li>
-          <li data-key="froggy-sre" data-deps="froggykit,froggy">
-            <span class="proj-node" aria-hidden="true"></span>
-            <a href="https://github.com/froggychips/froggy-sre">
-              <span class="proj-name">Froggy-SRE</span>
-              <span class="proj-desc"><em>Triage in your dock.</em> MCP-based SRE incident-response agent for macOS. Kubernetes alert → recon → root cause + proposed fix + risk score, without leaving the laptop.</span>
-              <span class="proj-arrow" aria-hidden="true">→</span>
-            </a>
-          </li>
-          <li data-key="sre-ai-copilot" data-deps="">
-            <span class="proj-node" aria-hidden="true"></span>
-            <a href="https://github.com/froggychips/sre-ai-copilot">
-              <span class="proj-name">SRE-AI-Copilot</span>
-              <span class="proj-desc"><em>Signals first, AI second.</em> Python + Celery cloud SRE agent: AlertManager webhook → telemetry recon (knowledge graph, metrics, pod events) → analyzer/hypothesis/critic/fix/risk pipeline. Not a ChatGPT wrapper.</span>
-              <span class="proj-arrow" aria-hidden="true">→</span>
-            </a>
-          </li>
-          <li data-key="mcp-skills-vault" data-deps="">
-            <span class="proj-node" aria-hidden="true"></span>
-            <a href="https://github.com/froggychips/mcp-skills-vault">
-              <span class="proj-name">MCP-Skills-Vault</span>
-              <span class="proj-desc"><em>Trust, but pin.</em> Registry and supply-chain integrity gate for MCP servers. 110+ vetted entries, sha512/sha256/Docker-digest pins, offline-first. Because <code>npm install</code> from a stranger is still <code>npm install</code> from a stranger.</span>
-              <span class="proj-arrow" aria-hidden="true">→</span>
-            </a>
-          </li>
-          <li data-key="tweai" data-deps="">
-            <span class="proj-node" aria-hidden="true"></span>
-            <a href="https://github.com/froggychips/tweai">
-              <span class="proj-name">TweAI</span>
-              <span class="proj-desc"><em>Your keys, your model, your replies.</em> Open-source Chrome extension that drafts replies for X / Twitter in your voice — 8 personas, smart thread context, tweet translator. OpenAI, Grok, Gemini. BYOK, no subscription, nothing routed through a middleman.</span>
-              <span class="proj-arrow" aria-hidden="true">→</span>
-            </a>
-          </li>
-        </ul>
+
+      <div class="projects-group">
+        <h3 class="group-label">Froggy ecosystem</h3>
+        <div class="projects-wrap" data-trunk="true">
+          <svg class="deps-overlay" aria-hidden="true"></svg>
+          <ul class="projects">
+            <li data-key="froggy" data-deps="" class="in-trunk">
+              <span class="proj-node" aria-hidden="true"></span>
+              <a href="https://github.com/froggychips/Froggy">
+                <span class="proj-name">Froggy</span>
+                <span class="proj-desc"><em>8 GB is enough.</em> Local LLM + screen-OCR daemon for memory-constrained Apple Silicon. Swift 6, MLX, ScreenCaptureKit. Runs on the Mac most tools say they need 16+ for.</span>
+                <span class="proj-arrow" aria-hidden="true">→</span>
+              </a>
+            </li>
+            <li data-key="froggykit" data-deps="froggy" class="in-trunk">
+              <span class="proj-node" aria-hidden="true"></span>
+              <a href="https://github.com/froggychips/FroggyKit">
+                <span class="proj-name">FroggyKit</span>
+                <span class="proj-desc"><em>Just the plumbing.</em> Shared Swift package with the FroggyClient IPC layer. Used by Froggy-MCP and Froggy-SRE so the wire format stays in one place.</span>
+                <span class="proj-arrow" aria-hidden="true">→</span>
+              </a>
+            </li>
+            <li data-key="froggy-mcp" data-deps="froggykit,froggy" class="in-trunk">
+              <span class="proj-node" aria-hidden="true"></span>
+              <a href="https://github.com/froggychips/froggy-mcp">
+                <span class="proj-name">Froggy-MCP</span>
+                <span class="proj-desc"><em>Cloud model, local eyes.</em> MCP bridge — Claude Code reads your screen, OCRs text, and calls the on-device Froggy daemon. Nothing leaves the box unless you ask.</span>
+                <span class="proj-arrow" aria-hidden="true">→</span>
+              </a>
+            </li>
+            <li data-key="froggy-sre" data-deps="froggykit,froggy" class="in-trunk">
+              <span class="proj-node" aria-hidden="true"></span>
+              <a href="https://github.com/froggychips/froggy-sre">
+                <span class="proj-name">Froggy-SRE</span>
+                <span class="proj-desc"><em>Triage in your dock.</em> MCP-based SRE incident-response agent for macOS. Kubernetes alert → recon → root cause + proposed fix + risk score, without leaving the laptop.</span>
+                <span class="proj-arrow" aria-hidden="true">→</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="projects-group">
+        <h3 class="group-label">Also</h3>
+        <div class="projects-wrap">
+          <ul class="projects">
+            <li data-key="sre-ai-copilot" data-deps="">
+              <span class="proj-node" aria-hidden="true"></span>
+              <a href="https://github.com/froggychips/sre-ai-copilot">
+                <span class="proj-name">SRE-AI-Copilot</span>
+                <span class="proj-desc"><em>Signals first, AI second.</em> Python + Celery cloud SRE agent: AlertManager webhook → telemetry recon (knowledge graph, metrics, pod events) → analyzer/hypothesis/critic/fix/risk pipeline. Not a ChatGPT wrapper.</span>
+                <span class="proj-arrow" aria-hidden="true">→</span>
+              </a>
+            </li>
+            <li data-key="mcp-skills-vault" data-deps="">
+              <span class="proj-node" aria-hidden="true"></span>
+              <a href="https://github.com/froggychips/mcp-skills-vault">
+                <span class="proj-name">MCP-Skills-Vault</span>
+                <span class="proj-desc"><em>Trust, but pin.</em> Supply-chain integrity gate for MCP servers — 110+ vetted entries, sha512/Docker-digest pins, offline-first. Because <code>npm install</code> from a stranger is still <code>npm install</code> from a stranger.</span>
+                <span class="proj-arrow" aria-hidden="true">→</span>
+              </a>
+            </li>
+            <li data-key="tweai" data-deps="">
+              <span class="proj-node" aria-hidden="true"></span>
+              <a href="https://github.com/froggychips/tweai">
+                <span class="proj-name">TweAI</span>
+                <span class="proj-desc"><em>Your keys, your model, your replies.</em> Open-source Chrome extension that drafts replies for X in your voice — 8 personas, thread context, tweet translator. OpenAI, Grok, Gemini. BYOK, no subscription, no middleman.</span>
+                <span class="proj-arrow" aria-hidden="true">→</span>
+              </a>
+            </li>
+          </ul>
+        </div>
       </div>
     </section>
 

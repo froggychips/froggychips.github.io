@@ -106,6 +106,18 @@ ul {
 }
 
 /* Projects — full-row clickable cards with hover dep-graph */
+.projects-group + .projects-group { margin-top: 24px; }
+
+.group-label {
+  font-size: 11px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--muted);
+  margin: 0 0 10px 26px;
+  opacity: 0.75;
+}
+
 .projects-wrap {
   position: relative;
   /* room on the left for the dep-graph "branch lane" */
@@ -142,6 +154,20 @@ ul {
   to { stroke-dashoffset: -16; }
 }
 
+/* Persistent trunk line through the Froggy-ecosystem nodes */
+.deps-overlay .dep-trunk {
+  fill: none;
+  stroke: var(--accent);
+  stroke-width: 2;
+  stroke-linecap: round;
+  opacity: 0.30;
+  transition: opacity 180ms ease;
+}
+.projects.graph-active ~ * .dep-trunk,
+.projects-wrap:has(.projects.graph-active) .dep-trunk {
+  opacity: 0.18;  /* recede during hover so dashed edges read clearly */
+}
+
 .projects { display: flex; flex-direction: column; gap: 8px; }
 
 .projects li {
@@ -163,6 +189,13 @@ ul {
   border: 1.5px solid var(--muted);
   z-index: 2;
   transition: background 180ms ease, border-color 180ms ease, transform 180ms ease, box-shadow 180ms ease;
+}
+
+/* Trunk-member nodes are filled accent by default so the trunk line doesn't
+   look like it's floating between hollow dots. */
+.projects li.in-trunk .proj-node {
+  background: color-mix(in srgb, var(--accent) 80%, var(--bg));
+  border-color: var(--accent);
 }
 
 /* Dim non-related cards while a graph is active */
