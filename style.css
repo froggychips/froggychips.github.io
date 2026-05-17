@@ -1,0 +1,142 @@
+/* froggychips.xyz — minimal modern, light, with dark-mode follow-up.
+   No build step, no JS, no analytics, no third-party scripts beyond
+   the Inter webfont (rsms.me). */
+
+:root {
+  --bg: #ffffff;
+  --fg: #1a1a1a;
+  --muted: #6b6b6b;
+  --rule: #e8e8e8;
+  --accent: #2d8a3e;
+  --max-w: 640px;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0e0f10;
+    --fg: #e8e8e8;
+    --muted: #8a8a8a;
+    --rule: #232427;
+    --accent: #5fbf6e;
+  }
+}
+
+* { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  font-family: 'Inter var', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+  font-feature-settings: 'cv11', 'ss03', 'ss01';
+  font-size: 16px;
+  line-height: 1.55;
+  color: var(--fg);
+  background: var(--bg);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+main {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: 64px 24px 48px;
+}
+
+@media (min-width: 720px) {
+  main { padding-top: 96px; }
+}
+
+header h1 {
+  font-size: 28px;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  margin: 0 0 6px;
+}
+
+.tagline {
+  color: var(--muted);
+  margin: 0 0 36px;
+  font-size: 15px;
+}
+
+.bio p {
+  margin: 0 0 48px;
+  color: var(--fg);
+  max-width: 56ch;
+}
+
+section { margin-bottom: 40px; }
+
+h2 {
+  font-size: 12px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--muted);
+  margin: 0 0 14px;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.projects li {
+  display: grid;
+  grid-template-columns: 160px 1fr;
+  column-gap: 20px;
+  padding: 10px 0;
+  border-top: 1px solid var(--rule);
+}
+
+.projects li:last-child { border-bottom: 1px solid var(--rule); }
+
+.projects li a {
+  font-weight: 500;
+}
+
+.projects li span {
+  color: var(--muted);
+  font-size: 14.5px;
+}
+
+@media (max-width: 540px) {
+  .projects li {
+    grid-template-columns: 1fr;
+    row-gap: 2px;
+    padding: 12px 0;
+  }
+}
+
+.contact li {
+  padding: 4px 0;
+}
+
+a {
+  color: var(--fg);
+  text-decoration: none;
+  border-bottom: 1px solid var(--rule);
+  transition: border-color 120ms ease, color 120ms ease;
+}
+
+a:hover {
+  color: var(--accent);
+  border-bottom-color: var(--accent);
+}
+
+footer {
+  margin-top: 56px;
+  padding-top: 20px;
+  border-top: 1px solid var(--rule);
+  color: var(--muted);
+  font-size: 14px;
+}
+
+footer p { margin: 0; }
+
+::selection {
+  background: var(--accent);
+  color: var(--bg);
+}

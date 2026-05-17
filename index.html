@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>froggychips — Bangkok · Apple Silicon, local LLMs, SRE</title>
+  <meta name="description" content="Self-taught engineer working at the edges of Apple Silicon, local LLMs, and SRE automation. Bangkok.">
+  <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0e0f10" media="(prefers-color-scheme: dark)">
+
+  <meta property="og:title" content="froggychips">
+  <meta property="og:description" content="Bangkok · Apple Silicon, local LLMs, SRE.">
+  <meta property="og:url" content="https://froggychips.xyz">
+  <meta property="og:type" content="website">
+
+  <link rel="icon" href="data:image/svg+xml,&lt;svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22&gt;&lt;text y=%22.9em%22 font-size=%2290%22&gt;&#x1F438;&lt;/text&gt;&lt;/svg&gt;">
+  <link rel="preconnect" href="https://rsms.me/">
+  <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main>
+    <header>
+      <h1>froggychips</h1>
+      <p class="tagline">Bangkok · Apple Silicon, local LLMs, SRE automation.</p>
+    </header>
+
+    <section aria-label="bio" class="bio">
+      <p>
+        Self-taught engineer. Day job: SRE on a live game backend. Side projects:
+        on-device LLMs for memory-constrained Macs, MCP tooling for Claude Code,
+        and the supply-chain plumbing under both.
+      </p>
+    </section>
+
+    <section aria-label="projects">
+      <h2>Projects</h2>
+      <ul class="projects">
+        <li>
+          <a href="https://github.com/froggychips/Froggy">Froggy</a>
+          <span>Local LLM + screen-OCR daemon for 8 GB Apple Silicon. Swift 6, MLX, ScreenCaptureKit.</span>
+        </li>
+        <li>
+          <a href="https://github.com/froggychips/froggy-mcp">froggy-mcp</a>
+          <span>MCP bridge: lets Claude Code talk to the Froggy daemon over a Unix socket — cloud model, local eyes.</span>
+        </li>
+        <li>
+          <a href="https://github.com/froggychips/froggy-sre">froggy-sre</a>
+          <span>MCP-based SRE incident response agent for macOS. Kubernetes alert → root cause + fix + risk.</span>
+        </li>
+        <li>
+          <a href="https://github.com/froggychips/sre-ai-copilot">sre-ai-copilot</a>
+          <span>Python + Celery cloud variant of the SRE agent. AlertManager webhook → analyzer/hypothesis/critic/fix/risk pipeline.</span>
+        </li>
+        <li>
+          <a href="https://github.com/froggychips/mcp-skills-vault">mcp-skills-vault</a>
+          <span>Registry + supply-chain integrity gate for MCP servers. 110+ vetted entries, sha512/sha256/Docker-digest pins, offline-first.</span>
+        </li>
+        <li>
+          <a href="https://github.com/froggychips/FroggyKit">FroggyKit</a>
+          <span>Shared Swift package — FroggyClient IPC, used by froggy-mcp and froggy-sre.</span>
+        </li>
+      </ul>
+    </section>
+
+    <section aria-label="contact">
+      <h2>Contact</h2>
+      <ul class="contact">
+        <li><a href="https://github.com/froggychips">github.com/froggychips</a></li>
+        <li><a href="https://t.me/froggychips">telegram @froggychips</a></li>
+        <li><a href="mailto:big@froggychips.xyz">big@froggychips.xyz</a></li>
+      </ul>
+    </section>
+
+    <footer>
+      <p>In Frog We Trust 🐸</p>
+    </footer>
+  </main>
+</body>
+</html>
