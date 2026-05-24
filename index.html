@@ -22,6 +22,7 @@
   <meta name="twitter:description" content="Russia · Moscow → Thailand · Bangkok. Apple Silicon, local LLMs, SRE automation.">
   <meta name="twitter:image" content="https://froggychips.xyz/og-image.png">
 
+  <link rel="canonical" href="https://froggychips.xyz/">
   <link rel="icon" href="data:image/svg+xml,&lt;svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22&gt;&lt;text y=%22.9em%22 font-size=%2290%22&gt;&#x1F438;&lt;/text&gt;&lt;/svg&gt;">
   <link rel="preconnect" href="https://rsms.me/">
   <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
@@ -53,6 +54,31 @@
         for, plumbing Claude Code into things it probably shouldn't touch yet,
         and trying to make MCP boring.
       </p>
+      <p class="positioning">
+        I build small, sharp infrastructure tools that turn noisy systems into
+        explainable workflows.
+      </p>
+    </section>
+
+    <section aria-label="current work" class="now-section">
+      <h2>Currently shipping</h2>
+      <div class="now-grid">
+        <a class="now-card" href="https://github.com/froggychips/sre-ai-copilot">
+          <span class="now-kicker">SRE</span>
+          <strong>SRE-AI-Copilot</strong>
+          <span>KG-first alert intelligence: topology, deploys, pod events, blast radius, NATS impact, Discord digests.</span>
+        </a>
+        <a class="now-card" href="https://mcp.froggychips.xyz/">
+          <span class="now-kicker">MCP safety</span>
+          <strong>MCP Vault</strong>
+          <span>112 vetted MCP entries, sha512 and Docker digest pins, offline-first audit tooling.</span>
+        </a>
+        <a class="now-card" href="https://github.com/froggychips/mcp-trace">
+          <span class="now-kicker">MCP observability</span>
+          <strong>MCP Trace</strong>
+          <span>Black-box recorder for MCP stdio traffic. Local SQLite, metadata-first, bodies off by default.</span>
+        </a>
+      </div>
     </section>
 
     <section aria-label="projects" class="projects-section">
@@ -100,25 +126,49 @@
       </div>
 
       <div class="projects-group">
-        <h3 class="group-label">Also</h3>
+        <h3 class="group-label">SRE and MCP infrastructure</h3>
         <div class="projects-wrap">
           <ul class="projects">
             <li data-key="sre-ai-copilot" data-deps="">
               <span class="proj-node" aria-hidden="true"></span>
               <a href="https://github.com/froggychips/sre-ai-copilot">
                 <span class="proj-name">SRE-AI-Copilot</span>
-                <span class="proj-desc"><em>Signals first, AI second.</em> Python + Celery cloud SRE agent: AlertManager webhook → telemetry recon (knowledge graph, metrics, pod events) → analyzer/hypothesis/critic/fix/risk pipeline. Not a ChatGPT wrapper.</span>
+                <span class="proj-desc"><em>Signals first, AI second.</em> KG-first SRE intelligence layer: AlertManager → topology/deploy/pod-event enrichment → Discord incidents with blast radius, NATS impact, pod trail, owners and daily digests. LLM optional; signals decide.</span>
                 <span class="proj-arrow" aria-hidden="true">→</span>
               </a>
             </li>
             <li data-key="mcp-skills-vault" data-deps="">
               <span class="proj-node" aria-hidden="true"></span>
-              <a href="https://github.com/froggychips/mcp-skills-vault">
+              <a href="https://mcp.froggychips.xyz/">
                 <span class="proj-name">MCP-Skills-Vault</span>
-                <span class="proj-desc"><em>Trust, but pin.</em> Supply-chain integrity gate for MCP servers — 110+ vetted entries, sha512/Docker-digest pins, offline-first. Because <code>npm install</code> from a stranger is still <code>npm install</code> from a stranger.</span>
+                <span class="proj-desc"><em>Trust, but pin.</em> Supply-chain integrity gate for MCP servers — 112 vetted entries, sha512/Docker-digest pins, offline-first audit, and a browsable public registry. Because <code>npm install</code> from a stranger is still <code>npm install</code> from a stranger.</span>
                 <span class="proj-arrow" aria-hidden="true">→</span>
               </a>
             </li>
+            <li data-key="mcp-trace" data-deps="">
+              <span class="proj-node" aria-hidden="true"></span>
+              <a href="https://github.com/froggychips/mcp-trace">
+                <span class="proj-name">MCP Trace</span>
+                <span class="proj-desc"><em>Flight recorder for tools.</em> Stdio proxy for MCP servers that captures JSON-RPC metadata into local SQLite. Built for debugging, audits, and “what did this agent actually call?” moments.</span>
+                <span class="proj-arrow" aria-hidden="true">→</span>
+              </a>
+            </li>
+            <li data-key="mcp-vault-npm" data-deps="">
+              <span class="proj-node" aria-hidden="true"></span>
+              <a href="https://www.npmjs.com/package/@froggychips/mcp-vault">
+                <span class="proj-name">@froggychips/mcp-vault</span>
+                <span class="proj-desc"><em>The CLI gate.</em> Audit, scan, install and doctor flows for MCP server manifests. Offline mode means “no network,” not “trust me bro.”</span>
+                <span class="proj-arrow" aria-hidden="true">→</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="projects-group">
+        <h3 class="group-label">Also</h3>
+        <div class="projects-wrap">
+          <ul class="projects">
             <li data-key="tweai" data-deps="">
               <span class="proj-node" aria-hidden="true"></span>
               <a href="https://github.com/froggychips/tweai">
