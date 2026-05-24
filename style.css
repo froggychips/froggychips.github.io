@@ -88,6 +88,12 @@ header h1 {
   max-width: 56ch;
 }
 
+.bio .positioning {
+  margin-top: -28px;
+  margin-bottom: 48px;
+  color: var(--muted);
+}
+
 section { margin-bottom: 40px; }
 
 h2 {
@@ -103,6 +109,61 @@ ul {
   list-style: none;
   padding: 0;
   margin: 0;
+}
+
+/* Current work — tighter proof-of-motion cards near the top */
+.now-section { margin-top: -8px; }
+
+.now-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 10px;
+}
+
+.now-card {
+  display: grid;
+  gap: 6px;
+  padding: 14px 16px;
+  background:
+    linear-gradient(135deg, color-mix(in srgb, var(--accent) 10%, transparent), transparent 45%),
+    var(--card);
+  border: 1px solid var(--rule);
+  border-radius: 12px;
+  color: var(--fg);
+  text-decoration: none;
+  transition: background 140ms ease, border-color 140ms ease, transform 140ms ease;
+}
+
+.now-card:hover,
+.now-card:focus-visible {
+  background:
+    linear-gradient(135deg, color-mix(in srgb, var(--accent) 16%, transparent), transparent 50%),
+    var(--card-hover);
+  border-color: var(--accent);
+  transform: translateY(-1px);
+}
+
+.now-card strong {
+  font-size: 16px;
+  line-height: 1.25;
+}
+
+.now-card span:last-child {
+  color: var(--muted);
+  font-size: 14.5px;
+}
+
+.now-kicker {
+  width: max-content;
+  padding: 2px 7px;
+  border: 1px solid color-mix(in srgb, var(--accent) 34%, var(--rule));
+  border-radius: 999px;
+  color: var(--accent);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.07em;
+  line-height: 1.4;
+  text-transform: uppercase;
 }
 
 /* Projects — full-row clickable cards with hover dep-graph */
