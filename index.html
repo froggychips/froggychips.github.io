@@ -58,21 +58,21 @@
       <h2>Currently shipping</h2>
       <ul class="now-list">
         <li>
-          <a href="https://github.com/froggychips/sre-ai-copilot">
+          <a href="https://sre.froggychips.xyz/">
             <strong>SRE-AI-Copilot</strong>
-            <span>KG-first alert intelligence</span>
+            <span>v1.0.23 · policy-gated incident response</span>
           </a>
         </li>
         <li>
           <a href="https://mcp.froggychips.xyz/">
-            <strong>MCP Vault</strong>
-            <span>112 pinned MCP entries</span>
+            <strong>mcp-vault</strong>
+            <span>v0.16 · offline MCP config check in CI</span>
           </a>
         </li>
         <li>
           <a href="https://github.com/froggychips/mcp-trace">
             <strong>MCP Trace</strong>
-            <span>local stdio flight recorder</span>
+            <span>experimental stdio flight recorder</span>
           </a>
         </li>
       </ul>
@@ -128,17 +128,17 @@
           <ul class="projects">
             <li data-key="sre-ai-copilot" data-deps="">
               <span class="proj-node" aria-hidden="true"></span>
-              <a href="https://github.com/froggychips/sre-ai-copilot">
+              <a href="https://sre.froggychips.xyz/">
                 <span class="proj-name">SRE-AI-Copilot</span>
-                <span class="proj-desc"><em>Signals first, AI second.</em> KG-first SRE intelligence layer: AlertManager → topology/deploy/pod-event enrichment → Discord incidents with blast radius, NATS impact, pod trail, owners and daily digests. LLM optional; signals decide.</span>
+                <span class="proj-desc"><em>No kubectl on a hunch.</em> AI incident response for Kubernetes: KG-first enrichment, multi-hypothesis RCA and Discord incidents with blast radius, owners and daily digests. Whether a fix gets applied is decided by a deterministic policy engine across 8 risk axes — not by the model's answer.</span>
                 <span class="proj-arrow" aria-hidden="true">→</span>
               </a>
             </li>
             <li data-key="mcp-skills-vault" data-deps="">
               <span class="proj-node" aria-hidden="true"></span>
               <a href="https://mcp.froggychips.xyz/">
-                <span class="proj-name">MCP-Skills-Vault</span>
-                <span class="proj-desc"><em>Trust, but pin.</em> Supply-chain integrity gate for MCP servers — 112 vetted entries, sha512/Docker-digest pins, offline-first audit, and a browsable public registry. Because <code>npm install</code> from a stranger is still <code>npm install</code> from a stranger.</span>
+                <span class="proj-name">mcp-vault</span>
+                <span class="proj-desc"><em>Trust, but pin.</em> Offline security check for the MCP configs in your repo — GitHub Action, pre-commit hook and CLI. Flags unpinned servers, plaintext secrets, typosquats, tool poisoning and toxic tool flows before anyone's editor launches them. Zero dependencies, no telemetry. Because <code>npx</code> from a stranger is still <code>npx</code> from a stranger.</span>
                 <span class="proj-arrow" aria-hidden="true">→</span>
               </a>
             </li>
@@ -146,7 +146,7 @@
               <span class="proj-node" aria-hidden="true"></span>
               <a href="https://github.com/froggychips/mcp-trace">
                 <span class="proj-name">MCP Trace</span>
-                <span class="proj-desc"><em>Flight recorder for tools.</em> Stdio proxy for MCP servers that captures JSON-RPC metadata into local SQLite. Built for debugging, audits, and “what did this agent actually call?” moments.</span>
+                <span class="proj-desc"><em>Flight recorder for tools.</em> Experimental stdio proxy for MCP servers that captures JSON-RPC metadata (method, tool, latency, errors — no bodies by default) into local SQLite. Built for debugging, audits, and “what did this agent actually call?” moments.</span>
                 <span class="proj-arrow" aria-hidden="true">→</span>
               </a>
             </li>
@@ -154,7 +154,7 @@
               <span class="proj-node" aria-hidden="true"></span>
               <a href="https://www.npmjs.com/package/@froggychips/mcp-vault">
                 <span class="proj-name">@froggychips/mcp-vault</span>
-                <span class="proj-desc"><em>The CLI gate.</em> Audit, scan, install and doctor flows for MCP server manifests. Offline mode means “no network,” not “trust me bro.”</span>
+                <span class="proj-desc"><em>The CLI gate.</em> The same checks as the Action, from your terminal or a pre-commit hook. Offline means “no network,” not “trust me bro.”</span>
                 <span class="proj-arrow" aria-hidden="true">→</span>
               </a>
             </li>
